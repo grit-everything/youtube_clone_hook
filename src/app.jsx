@@ -2,7 +2,8 @@ import React from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import './app.css';
-import VideoList from './components/video_list/videoList';
+import SearchBar from './components/video_list/searchBar';
+import VideoList from './components/video_list/video_list';
 
 function App() {
   const [videos, setVideos] = useState([]);
@@ -24,6 +25,7 @@ function App() {
 
   return (
     <>
+      <SearchBar />
       <VideoList videos={videos} />
     </>
   );

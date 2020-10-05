@@ -11,9 +11,13 @@ function App({ youtube }) {
   const [selectedVideo, setSelectedVideo] = useState(null);
 
   const onSearch = (q) => {
+    setSelectedVideo(null);
+
     youtube
       .search(q) //
-      .then((videos) => setVideos(videos));
+      .then((videos) => {
+        setVideos(videos);
+      });
   };
 
   useEffect(() => {

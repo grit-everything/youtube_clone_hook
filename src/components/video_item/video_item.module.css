@@ -1,9 +1,15 @@
 .container {
   /* 두 줄로 list를 만들기 위해서 박스 width를 50%로 해준다. 하지만 박스에 border 두께가 존재하기 때문에 두 줄로 바뀌지 않는다. box-sizing 의 기본값인 content-box를 border-box로 변경해줘야 50% 크기 안에서 모든 설정 값이 반영된 박스가 완성되고 flex-wrap: wrap; 을 통해 박스를 정렬 */
-  width: 50%;
   padding: 0.2em;
 }
 
+.container.grid {
+  width: 50%;
+}
+
+.container.list {
+  width: 100%;
+}
 .video {
   cursor: pointer;
   transition: transform 250ms ease-in;

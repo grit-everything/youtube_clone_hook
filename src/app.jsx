@@ -1,4 +1,5 @@
 import React from 'react';
+import { useCallback } from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import styles from './app.module.css';
@@ -10,25 +11,26 @@ function App({ youtube }) {
   const [videos, setVideos] = useState([]);
   const [selectedVideo, setSelectedVideo] = useState(null);
 
-  const onSearch = (q) => {
-    setSelectedVideo(null);
+  const onSearch = useCallback(
+    (q) => {
+      setSelectedVideo(null);
 
-    youtube
-      .search(q) //
-      .then((videos) => {
-        setVideos(videos);
-      });
-  };
+      youtube
+        .search(q) //
+        .then((videos) => {
+          setVideos(videos);
+        });
+    },
+    [youtube]
+  );
 
   useEffect(() => {
     youtube
-      .mostPopular() //
-      .catch((error) => console.log(error))
+      .search('동기부여') //
       .then((videos) => {
-        console.log(videos);
         return setVideos(videos);
       });
-  }, []);
+  }, [youtube]);
 
   const onSelectedVideo = (video) => {
     setSelectedVideo(video);

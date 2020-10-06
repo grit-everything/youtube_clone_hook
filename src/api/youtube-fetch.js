@@ -1,3 +1,4 @@
+// import axios from 'axios';
 // const KEY = 'AIzaSyDdInymZMLdh4trTf5tRILg_br471ePaFQ';
 
 // export default axios.create({
@@ -9,40 +10,7 @@
 //   },
 // });
 
-class Youtube {
-  constructor(httpClient) {
-    this.youtube = httpClient;
-  }
-
-  async search(query) {
-    const response = await this.youtube.get('search', {
-      params: {
-        part: 'snippet',
-        chart: 'mostPopular',
-        maxResults: 25,
-        q: query,
-      },
-    });
-    return response.data.items;
-  }
-
-  async mostPopular() {
-    const response = await this.youtube.get('videos', {
-      params: {
-        part: 'snippet',
-        chart: 'mostPopular',
-        maxResults: 25,
-      },
-    });
-    return response.data.items;
-  }
-}
-
-export default Youtube;
-
-/*
-
-class Youtube {
+class YoutubeFetch {
   constructor(key) {
     this.key = key;
     this.getRequestOptions = {
@@ -64,5 +32,4 @@ class Youtube {
   }
 }
 
-export default Youtube;
-*/
+export default YoutubeFetch;

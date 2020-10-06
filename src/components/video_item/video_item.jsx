@@ -1,7 +1,8 @@
 import React from 'react';
+import { memo } from 'react';
 import styles from './video_item.module.css';
 
-const VideoItem = ({ video, onSelectedVideo, display }) => {
+const VideoItem = memo(({ video, onSelectedVideo, display }) => {
   const displayType = display === 'list' ? styles.list : styles.grid;
   return (
     <li
@@ -23,6 +24,6 @@ const VideoItem = ({ video, onSelectedVideo, display }) => {
       </div>
     </li>
   );
-};
+});
 
 export default VideoItem;

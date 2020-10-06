@@ -20,7 +20,7 @@ const SearchHeader = memo(({ onSearch }) => {
   return (
     <header className={styles.header}>
       <div className={styles.logo}>
-        <img className={styles.img} src="/img/logo.png" alt="logo" />
+        <img className={styles.img} src={process.env.PUBLIC_URL + '/images/logo.png'} alt="logo" />
         <h1 className={styles.title}>Youtube</h1>
       </div>
 
@@ -36,7 +36,7 @@ const SearchHeader = memo(({ onSearch }) => {
         type="submit"
         onClick={onClick}
       >
-        <img className={styles.buttonImg} src="/img/search.png" alt="search" />
+        <img className={styles.buttonImg} src={process.env.PUBLIC_URL + '/images/search.png'} alt="search" />
       </button>
     </header>
   );

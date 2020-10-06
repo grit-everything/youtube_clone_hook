@@ -9,6 +9,7 @@ import VideoList from './components/video_list/video_list';
 
 function App({ youtube }) {
   const [videos, setVideos] = useState([]);
+
   const [selectedVideo, setSelectedVideo] = useState(null);
 
   const onSearch = useCallback(
@@ -17,8 +18,10 @@ function App({ youtube }) {
 
       youtube
         .search(q) //
+        .catch((err) => console.log(err))
         .then((videos) => {
-          setVideos(videos);
+          console.log(videos);
+          return setVideos(videos);
         });
     },
     [youtube]
@@ -27,7 +30,9 @@ function App({ youtube }) {
   useEffect(() => {
     youtube
       .search('동기부여') //
+      .catch((err) => console.log(err))
       .then((videos) => {
+        console.log(videos);
         return setVideos(videos);
       });
   }, [youtube]);
